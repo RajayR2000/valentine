@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dudu Mission Control</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a" aria-hidden="true"></div>
+    <div class="bg-orb orb-b" aria-hidden="true"></div>
+    <main class="app-shell">
+      <section id="scene0_intro" class="scene is-active">
+        <div class="card intro-card">
+          <h1>Are you ready?</h1>
+          <img
+            class="hero-gif"
+            src="assets/dudu_walk.gif"
+            alt="Dudu entering the mission room"
+            width="250"
+            height="250"
+          />
+          <button id="btnStart" class="btn btn-primary">Ready</button>
+        </div>
+      </section>
+
+      <section id="scene1_captcha" class="scene">
+        <div class="card">
+          <p class="eyebrow">Round 1</p>
+          <h2>Select all images that describe us</h2>
+          <p class="subtitle">
+            Pick the right pictures, then answer the question to continue.
+          </p>
+
+          <div id="tileGrid" class="tile-grid" aria-label="Captcha image tiles">
+            <button class="tile" data-id="tile1" type="button">
+              <img src="assets/us/pic1.JPG" alt="Us photo 1" loading="lazy" width="160" height="120" />
+            </button>
+            <button class="tile" data-id="tile2" type="button">
+              <img src="assets/us/Image%20(2).jpeg" alt="Us photo 2" loading="lazy" width="160" height="120" />
+            </button>
+            <button class="tile" data-id="tile3" type="button">
+              <img src="assets/us/Image%20(3).jpeg" alt="Us photo 3" loading="lazy" width="160" height="120" />
+            </button>
+            <button class="tile" data-id="tile4" type="button">
+              <img src="assets/us/Image%20(4).jpeg" alt="Us photo 4" loading="lazy" width="160" height="120" />
+            </button>
+            <button class="tile" data-id="tile5" type="button">
+              <img src="assets/decoy/decoy1.JPG" alt="Decoy photo 1" loading="lazy" width="160" height="120" />
+            </button>
+            <button class="tile" data-id="tile6" type="button">
+              <img src="assets/decoy/decoy2.jpg" alt="Decoy photo 2" loading="lazy" width="160" height="120" />
+            </button>
+          </div>
+
+          <p id="tileCounter" class="micro-copy">Selected: 0</p>
+
+          <div class="nickname-wrap">
+            <label for="nicknameInput">What is my favorite nickname for you?</label>
+            <div class="inline-row">
+              <input
+                id="nicknameInput"
+                type="text"
+                placeholder="Type the name I call you..."
+                autocomplete="off"
+              />
+              <button id="btnVerify" class="btn btn-primary" type="button">
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <div id="captchaError" class="error-box" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="scene2_question" class="scene">
+        <div class="card question-card">
+          <p class="eyebrow">Phase 2</p>
+          <h2>Will You Be My Valentine?</h2>
+          <div class="button-arena" id="buttonArena">
+            <button id="btnYes" class="btn btn-primary yes-btn" type="button">
+              Yes
+            </button>
+            <button id="btnNo" class="btn btn-ghost no-btn" type="button">
+              No
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene3_success" class="scene">
+        <div class="card success-card">
+          <div class="hug-wrap">
+            <img
+              id="hugGif"
+              data-src="assets/bubu_dudu_hug.gif"
+              alt="Bubu and Dudu hugging"
+              width="320"
+              height="320"
+              loading="lazy"
+            />
+          </div>
+          <button id="btnReplay" class="btn btn-soft" type="button">Replay</button>
+          <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="phaseBreak" class="phase-break" aria-live="polite">
+      <div class="phase-break-card">
+        <img id="phaseBreakGif" src="assets/dudu_dance.gif" alt="Dudu transition gif" width="180" height="180" />
+        <p id="phaseBreakText">Round over.</p>
+      </div>
+    </div>
+
+    <aside id="narratorDock" class="narrator-dock" aria-live="polite">
+      <img
+        id="duduSprite"
+        src="assets/dudu_cool.gif"
+        alt="Dudu narrator"
+        width="112"
+        height="112"
+      />
+      <div class="bubble" id="duduBubble">Mission control online.</div>
+    </aside>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
